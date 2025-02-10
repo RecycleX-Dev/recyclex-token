@@ -1,4 +1,5 @@
-require("hardhat-gas-reporter");
+require("@nomiclabs/hardhat-waffle");
+require("@nomiclabs/hardhat-etherscan");
 require("dotenv").config();
 
 
@@ -12,19 +13,13 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 
 module.exports = {
   solidity: {
-    version: "0.8.20",
+    version: "0.8.9",
     settings: {
       optimizer: {
         enabled: true,
         runs: 200,
       }
     }
-  },
-  
-  gasReporter: {
-    currency: 'KRW',
-    gasPrice: 24,
-    coinmarketcap: `${process.env.COINMARKETCAP_API_KEY}`
   },
 
   networks: {
@@ -41,7 +36,7 @@ module.exports = {
     },
   },
   etherscan: {
-      apiKey: process.env.ETH_SCAN_API_KEY,
+      apiKey: process.env.BSC_SCAN_API_KEY,
   },
 };
 
@@ -63,3 +58,41 @@ module.exports = {
 
 //Token 배포
 //npx hardhat run scripts/0_deploy_token.js --network sepolia
+
+//RoleManager 배포
+//npx hardhat run scripts/1_deploy_rolemanager.js --network sepolia
+
+//NFTBase 배포 (RoleManager)
+//npx hardhat run scripts/2_deploy_nftbase.js --network sepolia
+
+//NFTs 배포 (RoleManager, NFTBase, CurrentId)
+//npx hardhat run scripts/3_deploy_nfts.js --network sepolia
+
+//Matching 배포 (all, duration, matchingFee, teamaddress)
+//npx hardhat run scripts/4_deploy_matching.js --network sepolia
+
+//Staking 배포 (all,
+//npx hardhat run scripts/5_deploy_staking.js --network sepolia
+
+
+
+
+
+
+/////////////////////////////////////
+
+
+//
+//
+//NFTOpenSale 배포 (소스 주소 변경 후)
+//npx hardhat run scripts/9_deploy_nftopensale.js --network sepolia
+//npx hardhat verify --network sepolia [NFTOpenSale주소] [NFTBase주소]
+
+
+//NFTBase 세팅 수동으로.. 
+//어드민 추가
+
+
+
+//업그레이드 참고 꼭 읽고 진행 (컨트랙트 수정)
+//https://forum.openzeppelin.com/t/korean-writing-upgradeable-contracts/2007
