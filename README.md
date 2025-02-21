@@ -1,6 +1,6 @@
 # 🚀 RecycleX (RCX) Token
 
-![RCX Token](https://raw.githubusercontent.com/RecycleX-Dev/assets/refs/heads/main/Logo_RecycleX_green.svg)
+![RCX Token]
 
 ## 🌱 **소개**
 **RecycleX (RCX)** 는 환경 보호 및 재활용 경제를 촉진하기 위해 개발된 **BSC (Binance Smart Chain) 기반의 ERC-20 토큰**입니다.  
